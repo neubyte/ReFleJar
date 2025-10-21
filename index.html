@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflejar - Consulta de Credenciales</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Si tienes un logo de Reflejar, puedes ponerlo aquí -->
+    <!-- Por ejemplo, si el logo se llama 'logo_reflejar.png' y está en la misma carpeta que index.html -->
+    <link rel="icon" href="logo_reflejar.png" type="image/png"> 
+</head>
+<body>
+    <div class="container">
+        <!-- Si tienes un logo de Reflejar, puedes ponerlo aquí -->
+        <!-- Por ejemplo, si el logo se llama 'logo_reflejar.png' y está en la misma carpeta que index.html -->
+        <img src="logo_reflejar.png" alt="Logo Reflejar" class="logo">
+        <h1>Reflejar</h1>
+        <h2>Consulta de Usuario y Contraseña</h2>
+        <p>Ingresa tu DNI para ver tu Usuario y Contraseña asignada.</p>
+        <div class="search-box">
+            <input type="text" id="dniInput" placeholder="Ingresa tu DNI">
+            <button id="searchButton">Consultar</button>
+        </div>
+        <div id="results" class="results-box">
+            <p><strong>DNI:</strong> <span id="displayDNI"></span></p>
+            <p><strong>Usuario:</strong> <span id="displayUsername"></span></p>
+            <p><strong>Contraseña:</strong> <span id="displayPassword"></span></p>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
