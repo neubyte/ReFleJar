@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayPassword = document.getElementById('displayPassword');
     const errorMessage = document.getElementById('errorMessage');
     const padronDataReflejar = `
-30589457,agustinaquadrini,Reflejar123
+    30589457,agustinaquadrini,Reflejar123
 22287716,pedropalacios,Reflejar123
 26035491,paolavittore,Reflejar123
 24309619,maríarosalesandreotti,Reflejar123
@@ -1898,7 +1898,8 @@ boca,jerez,Reflejar123
 35501019,mariomillan,Reflejar123
 32242724,anabravoherrera,Reflejar123
 31338197,marioramon,Reflejar123
-21944255,adolfomonllaugrima,Reflejar123`;
+21944255,adolfomonllaugrima,Reflejar123
+`;
 
     const padron = padronDataReflejar.trim().split('\n').map(line => {
         const parts = line.split(',');
