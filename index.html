@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reflejar - Consulta de Credenciales</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Si tienes un logo de Reflejar, puedes ponerlo aquí -->
-    <!-- Por ejemplo, si el logo se llama 'logo_reflejar.png' y está en la misma carpeta que index.html -->
     <link rel="icon" href="logo_reflejar.png" type="image/png"> 
 </head>
 <body>
     <div class="container">
-        <!-- Si tienes un logo de Reflejar, puedes ponerlo aquí -->
-        <!-- Por ejemplo, si el logo se llama 'logo_reflejar.png' y está en la misma carpeta que index.html -->
         <img src="logo_reflejar.png" alt="Logo Reflejar" class="logo">
         <h1>Reflejar</h1>
         <h2>Consulta de Usuario y Contraseña</h2>
@@ -29,6 +25,61 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dniInput = document.getElementById('dniInput');
+        const searchButton = document.getElementById('searchButton');
+        const displayDNI = document.getElementById('displayDNI');
+        const displayUsername = document.getElementById('displayUsername');
+        const displayPassword = document.getElementById('displayPassword');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // --- DATOS CARGADOS DIRECTAMENTE EN EL SCRIPT ---
+        const padronDataReflejar = `
+        30589457,agustinaquadrini,Reflejar123
+        22287716,pedropalacios,Reflejar123
+        26035491,paolavittore,Reflejar123
+        24309619,mariarosalesandreotti,Reflejar123
+        33049625,jorgeargañarazponessa,Reflejar123
+        `;
+
+        // Convertimos el texto a un arreglo de objetos
+        const padron = padronDataReflejar
+            .trim()
+            .split('\n')
+            .map(line => {
+                const [dni, usuario, contrasena] = line.split(',').map(e => e.trim());
+                return { dni, usuario, contrasena };
+            });
+
+        // Función de búsqueda
+        function buscarDNI(dniBuscado) {
+            return padron.find(persona => persona.dni === dniBuscado);
+        }
+
+        // Evento del botón
+        searchButton.addEventListener('click', () => {
+            const dniIngresado = dniInput.value.trim();
+            const resultado = buscarDNI(dniIngresado);
+
+            if (resultado) {
+                displayDNI.textContent = resultado.dni;
+                displayUsername.textContent = resultado.usuario;
+                displayPassword.textContent = resultado.contrasena;
+                errorMessage.textContent = '';
+            } else {
+                displayDNI.textContent = '';
+                displayUsername.textContent = '';
+                displayPassword.textContent = '';
+                errorMessage.textContent = '❌ No se encontró el DNI ingresado.';
+            }
+        });
+
+        // Permitir buscar con Enter
+        dniInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') searchButton.click();
+        });
+    });
+    </script>
 </body>
 </html>
