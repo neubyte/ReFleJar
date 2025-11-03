@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayUsername = document.getElementById('displayUsername');
     const displayPassword = document.getElementById('displayPassword');
     const errorMessage = document.getElementById('errorMessage');
-
     const padronDataReflejar = `
 30589457,agustinaquadrini,Reflejar123
 22287716,pedropalacios,Reflejar123
